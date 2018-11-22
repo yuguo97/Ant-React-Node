@@ -1,0 +1,9 @@
+.aNews{
+    padding: 10px
+}
+.aNewsItem{
+    width: 20%;
+    float: left;
+    padding: 10px;
+    margin: 20px;
+}
