@@ -30,24 +30,26 @@ class News extends React.Component {
         return (
             <div className="aNews">
                 <Breadcrumb name="新闻数据"></Breadcrumb>
-                <Spin spinning={this.state.loading} tip="Loading...">
-                    {
-                        this.state.data.map((item,key)=>(
-                            <Card
-                            hoverable
-                            key={key}
-                            className="aNewsItem"
-                            cover={<img alt={item.source} src={item.picInfo[0].url} style={{ height: 280 }}/>}
-                          >
-                            <Meta
-                              title={item.digest}
-                              description={item.ptime}
-                            />
-                          </Card>
-                        ))
-                    }
+                <div className="Content">
+                    <Spin spinning={this.state.loading} tip="Loading...">
+                        {
+                            this.state.data.map((item, key) => (
+                                <Card
+                                    hoverable
+                                    key={key}
+                                    className="aNewsItem"
+                                    cover={<img alt={item.source} src={item.picInfo[0].url} style={{ height: 280 }} />}
+                                >
+                                    <Meta
+                                        title={item.digest}
+                                        description={item.ptime}
+                                    />
+                                </Card>
+                            ))
+                        }
 
-                </Spin>
+                    </Spin>
+                </div>
             </div>
         );
     }

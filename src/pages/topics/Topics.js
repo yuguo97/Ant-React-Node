@@ -27,17 +27,19 @@ class Topics extends React.Component {
     render() {
         return (
             <div className="aTopics">
-                <Spin spinning={this.state.loading} tip="Loading...">
                 <Breadcrumb name="时间轴数据" />
-                <Timeline>
-                    {this.state.data.map((item, index) => (
-                    <Timeline.Item key={index}>
-                        {item.name}
-                        {item.date}
-                    </Timeline.Item>
-                    ))}
-                </Timeline>
-                </Spin>
+                <div className="Content">
+                    <Spin spinning={this.state.loading} tip="Loading...">
+                        <Timeline>
+                            {this.state.data.map((item, index) => (
+                                <Timeline.Item key={index}>
+                                    {item.name}
+                                    {item.date}
+                                </Timeline.Item>
+                            ))}
+                        </Timeline>
+                    </Spin>
+                </div>
             </div>
             );
     }

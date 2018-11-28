@@ -28,14 +28,16 @@ class Home extends React.Component {
     render() {
         return <div className="aHome">
             <Breadcrumb name="首页数据" />
-            <Collapse defaultActiveKey={["1"]} onChange={callback} accordion>
-              {this.state.data.map(item => (
-                <Panel header={item.name} key={item.key}>
-                  <p>{item.text}</p>
-                </Panel>
-              ))}
-            </Collapse>,
-          </div>;
+            <div className="Content">
+                <Collapse defaultActiveKey={["1"]} onChange={callback} accordion>
+                    {this.state.data.map(item => (
+                        <Panel header={item.name} key={item.key}>
+                            <p>{item.text}</p>
+                        </Panel>
+                    ))}
+                </Collapse>
+            </div>
+          </div>
     }
 }
 
