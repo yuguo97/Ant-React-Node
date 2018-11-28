@@ -1,5 +1,6 @@
 import React from 'react'
-import { Timeline,Spin } from 'antd';
+import { Timeline,Spin} from 'antd';
+import Breadcrumb from "./../../components/Breadcrumb";
 import axios from "axios/index";
 
 class Topics extends React.Component {
@@ -27,16 +28,18 @@ class Topics extends React.Component {
         return (
             <div className="aTopics">
                 <Spin spinning={this.state.loading} tip="Loading...">
-                    <Timeline>
-                        {
-                            this.state.data.map((item,index)=>(
-                                <Timeline.Item key={index}>{item.name}{item.date}</Timeline.Item>
-                            ))
-                        }
-                    </Timeline>
+                <Breadcrumb name="时间轴数据" />
+                <Timeline>
+                    {this.state.data.map((item, index) => (
+                    <Timeline.Item key={index}>
+                        {item.name}
+                        {item.date}
+                    </Timeline.Item>
+                    ))}
+                </Timeline>
                 </Spin>
             </div>
-        );
+            );
     }
 }
 

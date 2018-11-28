@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Spin , Card } from 'antd';
+import Breadcrumb from "./../../components/Breadcrumb";
 import axios from "axios/index";
 const { Meta } = Card;
 
@@ -28,6 +29,7 @@ class News extends React.Component {
     render() {
         return (
             <div className="aNews">
+                <Breadcrumb name="新闻数据"></Breadcrumb>
                 <Spin spinning={this.state.loading} tip="Loading...">
                     {
                         this.state.data.map((item,key)=>(

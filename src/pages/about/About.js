@@ -1,5 +1,6 @@
 import React from 'react'
 import { Spin } from 'antd';
+import Breadcrumb from "./../../components/Breadcrumb";
 // 引入 ECharts 主模块
 import echarts from 'echarts/lib/echarts';
 // 引入柱状图
@@ -81,11 +82,13 @@ class About extends React.Component {
     render() {
         return (
             <div className="aAbout">
-                <Spin tip="Loading..." spinning={this.state.loading}>
-                    <div id="pie" className="pie"></div>
-                </Spin>
-            </div>
-        );
+                <Breadcrumb name="图表数据" />
+                <div className="Content">
+                    <Spin tip="Loading..." spinning={this.state.loading}>
+                        <div id="pie" className="pie" />
+                    </Spin>
+                </div>
+            </div>)
     }
 }
 

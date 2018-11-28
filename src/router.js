@@ -1,7 +1,7 @@
 import Topics from "./pages/topics/Topics";
 import About from "./pages/about/About";
 import Home from "./pages/home/Home";
-import Tab from "./components/Table";
+import Tab from "./pages/table/Table";
 import News from "./pages/news/News"
 const routes = [
     {

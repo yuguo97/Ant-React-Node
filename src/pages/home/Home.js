@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Breadcrumb from "./../../components/Breadcrumb";
 import { Collapse } from 'antd';
 import axios from "axios/index";
 
@@ -26,19 +26,16 @@ class Home extends React.Component {
             });
     }
     render() {
-        return (
-            <div className="aHome">
-                <Collapse defaultActiveKey={['1']} onChange={callback} accordion>
-                    {
-                        this.state.data.map((item)=>(
-                            <Panel header={item.name} key={item.key}>
-                                <p>{item.text}</p>
-                            </Panel>
-                        ))
-                    }
-                </Collapse>,
-            </div>
-        );
+        return <div className="aHome">
+            <Breadcrumb name="首页数据" />
+            <Collapse defaultActiveKey={["1"]} onChange={callback} accordion>
+              {this.state.data.map(item => (
+                <Panel header={item.name} key={item.key}>
+                  <p>{item.text}</p>
+                </Panel>
+              ))}
+            </Collapse>,
+          </div>;
     }
 }
 

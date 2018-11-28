@@ -2,7 +2,7 @@
 import React from 'react'
 import axios from 'axios';
 import { Table, Divider, Tag , Pagination } from 'antd';
-
+import Breadcrumb from "./../../components/Breadcrumb";
 const columns = [{
     title: 'Name',
     dataIndex: 'name',
@@ -67,6 +67,7 @@ class Tab extends React.Component {
     render() {
         return (
             <div className="aTable">
+                <Breadcrumb name="表格数据"></Breadcrumb>
                 <Table columns={this.state.columns} dataSource={this.state.data} loading={this.state.loading} pagination={false}/>
                 <Pagination defaultCurrent={this.state.current} total={this.state.total} showTotal={total => `总数据 ${total} 条`}/>
             </div>
