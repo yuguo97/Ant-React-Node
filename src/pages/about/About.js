@@ -88,7 +88,8 @@ class About extends React.Component {
                         <div id="pie" className="pie" />
                     </Spin>
                 </div>
-            </div>)
+            </div>
+        )
     }
 }
 

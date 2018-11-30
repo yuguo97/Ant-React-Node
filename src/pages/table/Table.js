@@ -67,7 +67,7 @@ class Tab extends React.Component {
     render() {
         return (
             <div className="aTable">
-                <Breadcrumb name="表格数据"></Breadcrumb>
+                <Breadcrumb name="表格数据" />
                 <div className="Content">
                     <Table columns={this.state.columns} dataSource={this.state.data} loading={this.state.loading} pagination={false} />
                     <Pagination defaultCurrent={this.state.current} total={this.state.total} showTotal={total => `总数据 ${total} 条`} />

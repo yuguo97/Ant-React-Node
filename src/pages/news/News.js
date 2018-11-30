@@ -29,7 +29,7 @@ class News extends React.Component {
     render() {
         return (
             <div className="aNews">
-                <Breadcrumb name="新闻数据"></Breadcrumb>
+                <Breadcrumb name="新闻数据" />
                 <div className="Content">
                     <Spin spinning={this.state.loading} tip="Loading...">
                         {

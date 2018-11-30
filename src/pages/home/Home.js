@@ -26,7 +26,8 @@ class Home extends React.Component {
             });
     }
     render() {
-        return <div className="aHome">
+        return (
+        <div className="aHome">
             <Breadcrumb name="首页数据" />
             <div className="Content">
                 <Collapse defaultActiveKey={["1"]} onChange={callback} accordion>
@@ -37,7 +38,8 @@ class Home extends React.Component {
                     ))}
                 </Collapse>
             </div>
-          </div>
+        </div>
+        )
     }
 }
 
