@@ -1,9 +1,7 @@
-.aNews{
-    padding: 10px
+.aAbout{
+    width: 100%;
 }
-.aNewsItem{
-    width: 20%;
-    float: left;
-    padding: 10px;
-    margin: 20px;
+.pie{
+    width: 100%;
+    height: 500px;
 }
