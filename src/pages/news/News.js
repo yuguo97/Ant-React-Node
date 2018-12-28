@@ -71,19 +71,20 @@ class News extends React.Component {
         this.setState({
             loading:true
         });
-        axios.get(`http://localhost:7553/v3/api`).then(res => {
-          this.setState({ loading: false });
-          var resData = res.data.result;
-          var data = [];
-          for (var i = 0; i < resData.length; i++) {
-            data.push({
-              name: resData[i].name,
-              value: resData[i].alexa
-            });
-          }
-          console.log(data);
-          getPie(data);
-        });
+        axios.get(`http://localhost:6551/api/Websites`)
+          .then(res => {
+            this.setState({ loading: false });
+            var resData = res.data.result;
+            var data = [];
+            for (var i = 0; i < resData.length; i++) {
+              data.push({
+                name: resData[i].name,
+                value: resData[i].alexa
+              });
+            }
+            console.log(data);
+            getPie(data);
+          });
     }
     render() {
         return (
