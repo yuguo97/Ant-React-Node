@@ -1,14 +1,10 @@
 const express = require('express');
 const app = express();
-var mysql = require('mysql');
+const mysql = require('mysql');
+const models = require("./db/db");
+const ygSQL = require('./db/ygSQL')
 
-var connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '910729',
-    port: '3306',
-    database: 'test'
-});
+var connection = mysql.createConnection(models.mysql);
 
 connection.connect();
 app.all('*', function (req, res, next) {
@@ -24,9 +20,8 @@ app.all('*', function (req, res, next) {
     }
   });
 
-
+const sqlStr = ygSQL.queryAll;
 app.get('/v3/api', (req, res) => {
-    const sqlStr = 'SELECT * FROM websites ';
     connection.query(sqlStr, (err, results) => {
         if (err) return res.json({ code: 1, message: '资料不存在', affextedRows: 0 })
         res.json({ code: 200, result: results, affextedRows: results.affextedRows })
@@ -34,5 +29,5 @@ app.get('/v3/api', (req, res) => {
 })
 
 app.listen(7553, () => {
-    console.log('正在监听端口3000,http://192.168.0.116:7553/v3/api'); //192.168.1.114换成你的ip,本机ip查询用cmd=>ipconfig
+    console.log("正在监听端口3000,http://localhost:7553/v3/api"); //192.168.1.114换成你的ip,本机ip查询用cmd=>ipconfig
 })
