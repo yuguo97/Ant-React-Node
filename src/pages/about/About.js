@@ -42,7 +42,7 @@ class About extends React.Component {
         this.setState({
             loading:true
         });
-        axios.get(`http://127.0.0.1:8551/wsdl/ChinaTV`).then(res => {
+        axios.get(`http://127.0.0.1:8551/wsdl/ChinaTV/getAreaDataSet`).then(res => {
           this.setState({ loading: false });
             var results = res.data.result
             var data = {

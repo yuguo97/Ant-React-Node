@@ -71,7 +71,7 @@ class News extends React.Component {
         this.setState({
             loading:true
         });
-        axios.get(`http://localhost:6551/api/Websites`)
+        axios.get(`http://localhost:6551/api/Websites/`)
           .then(res => {
             this.setState({ loading: false });
             var resData = res.data.result;

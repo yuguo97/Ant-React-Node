@@ -8,7 +8,7 @@ connection.connect();
 
 //查询
 const sqlStr = ygSQL.queryAllSQL;
-router.get("/Websites", function (req, res) {
+router.get("/", function (req, res) {
     connection.query(sqlStr, (err, results) => {
       if (err) {
                  return res.json({
@@ -31,7 +31,7 @@ router.get("/Websites", function (req, res) {
 const addStr = ygSQL.addSQL;
 // const addsqlparams = [param.name, param.url, param.alexa, param.country];
 // const addsqlparams = ['百度', 'https://www.baidu.com', '20','China'];
-router.post("/Websites", function (req, res) {
+router.post("/addWebsites", function (req, res) {
   const param = req.query || req.params; 
   const addsqlparams = [param.name, param.url, param.alexa, param.country];
   connection.query(addStr, addsqlparams, (err, results) => {
@@ -46,7 +46,7 @@ router.post("/Websites", function (req, res) {
 const modStr = ygSQL.modSQL;
 // const modsqlparams = [param.name, param.url, param.alexa, param.country, param.id];
 // const modsqlparams = ['百度', 'https://www.baidu.com', '20', 'China',"1"];
-router.put("/Websites", function (req, res) {
+router.put("/modWebsites", function (req, res) {
   const param = req.query || req.params; 
   const modsqlparams = [param.name, param.url, param.alexa, param.country, param.id];
   connection.query(modStr, modsqlparams, (err, results) => {
@@ -60,7 +60,7 @@ router.put("/Websites", function (req, res) {
 const delStr = ygSQL.delSQL;
 // const delsqlparams = [param.id];
 // const delsqlparams = ["1"];
-router.delete("/Websites", function(req, res) {
+router.delete("/delWebsites", function(req, res) {
   const param = req.query || req.params; 
   const delsqlparams = [param.id];
   connection.query(delStr, delsqlparams, (err, results) => {
