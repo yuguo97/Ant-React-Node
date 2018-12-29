@@ -20,7 +20,7 @@ app.all('*', function (req, res, next) {
     }
   });
 
-app.use("/api", WebsitesTVRouter);
+app.use("/api/v2", WebsitesTVRouter);
 app.listen(6551, () => {
     console.log("正在监听端口6551,http://localhost:6551/api"); //192.168.1.114换成你的ip,本机ip查询用cmd=>ipconfig
 })
