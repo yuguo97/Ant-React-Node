@@ -21,6 +21,7 @@
     padding-left: 100px;
     font-size: 20px;
     float: left;
+    cursor: pointer;
 }
 .h_right{
     width: 10%;
@@ -89,7 +90,8 @@
 
 }
     .login-logo{
-        text-align: center
+        text-align: center;
+        font-size: 18px;
     }
     .login-form {
         max-width: 300px;

@@ -20,15 +20,22 @@ class Aside extends React.Component{
                 <Menu.Item key="/Home/Topics">
                   <NavLink to="/Home/Topics">时间轴数据</NavLink>
                 </Menu.Item>
+              </SubMenu>
+              <SubMenu key="sub2" title={<span>
+                    <Icon type="appstore" />
+                    <span>系统设置</span>
+                  </span>}>
                 <Menu.Item key="/Home/About">
                   <NavLink to="/Home/About">图表数据</NavLink>
                 </Menu.Item>
-                <Menu.Item key="/Home/Tab">
-                  <NavLink to="/Home/Tab">表格数据</NavLink>
-                </Menu.Item>
-                <Menu.Item key="/Home/News">
-                  <NavLink to="/Home/News">新闻数据</NavLink>
-                </Menu.Item>
+                <SubMenu key="sub3" title="表格设置">
+                  <Menu.Item key="/Home/Tab">
+                    <NavLink to="/Home/Tab">表格数据</NavLink>
+                  </Menu.Item>
+                  <Menu.Item key="/Home/News">
+                    <NavLink to="/Home/News">新闻数据</NavLink>
+                  </Menu.Item>
+                </SubMenu>
               </SubMenu>
             </Menu>
           </div>;

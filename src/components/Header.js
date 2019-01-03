@@ -1,7 +1,7 @@
 import React from 'react';
 import Drop from './Dropdown'
 import {withRouter} from "react-router-dom";
-
+import history from "./../history";
 
 
 class Header extends React.Component {
@@ -9,7 +9,7 @@ class Header extends React.Component {
     //     super(props);
     // }
     confirm = () => {
-        this.props.history.push("/");
+        history.push("/Home/HomeIndex");
     };
     render() {
         return (
