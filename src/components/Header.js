@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React from 'react';
 import Drop from './Dropdown'
 import {withRouter} from "react-router-dom";
@@ -6,9 +5,9 @@ import {withRouter} from "react-router-dom";
 
 
 class Header extends React.Component {
-    constructor(props){
-        super(props);
-    }
+    // constructor(props){
+    //     super(props);
+    // }
     confirm = () => {
         this.props.history.push("/");
     };

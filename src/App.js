@@ -1,41 +1,30 @@
+/* eslint-disable */
 import React, { Component } from 'react';
+import Home from './home'
+import Login from './login'
 import './App.css';
 import history from './history';
-import Header from './components/Header'
-import Aside from './components/Aside'
-import Setting from './pages/settting/index'
+// import Header from './components/Header'
+// import Aside from './components/Aside'
+// import Setting from './pages/settting/index'
 
 
 import {  Router, Route, Switch, Redirect } from "react-router-dom";
 
-import routes from './router'
+// import routes from './router'
 
 
-class App extends Component {
-    render() {
-        return (
-            <Router history={history}>
-                <div className="App">
-                    <Header name="后台管理系统"/>
-                    <Aside/>
-                    <div className="aCont">
-                        <Switch>
-                            {routes.map((route, index) => (
-                                <Route
-                                    key={index}
-                                    path={route.path}
-                                    exact={route.exact}
-                                    component={route.component}
-                                />
-                            ))}
-                            <Route component={Setting} path="/Setting"/>
-                            <Redirect to="/" />
-                        </Switch>
-                    </div>
-                </div>
-            </Router>
-        );
-    }
+class App extends React.Component {
+  render() {
+    return (
+      <Router history={history}>
+        <Switch>
+        <Route exact path="/" component={Login} />
+        <Route path="/Home" component={Home} />
+        </Switch>
+      </Router>
+    );
+  }
 }
 
 export default App;
