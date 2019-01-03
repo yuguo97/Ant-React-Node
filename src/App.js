@@ -19,8 +19,9 @@ class App extends React.Component {
     return (
       <Router history={history}>
         <Switch>
-        <Route exact path="/" component={Login} />
-        <Route path="/Home" component={Home} />
+          <Route exact path="/" component={Login} />
+          <Route path="/Home" component={Home} />
+          <Redirect to="/" />
         </Switch>
       </Router>
     );

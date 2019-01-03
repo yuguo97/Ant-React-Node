@@ -8,7 +8,7 @@ const onClick = function ({ key }) {
         message.success("我的消息");
         history.push('/Home/Setting');
     }else if(key==="1"){
-        message.error("设置");
+        message.success("设置");
         history.push("/Home/News");
     }else if(key==="3"){
         message.warning("退出登录");

@@ -12,6 +12,7 @@ import 'echarts/lib/component/legend';
 
 import axios from "axios/index";
 
+import './index.css'
 function getPie(data){
     var name=[];
     for(var i=0;i<data.length;i++){

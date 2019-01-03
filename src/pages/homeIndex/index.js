@@ -2,7 +2,7 @@ import React from 'react';
 import Breadcrumb from "./../../components/Breadcrumb";
 import { Collapse } from 'antd';
 import axios from "axios/index";
-
+import './index.css'
 const Panel = Collapse.Panel;
 
 function callback(key) {

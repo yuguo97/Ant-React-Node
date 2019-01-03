@@ -12,6 +12,7 @@ import 'echarts/lib/component/legend';
 
 import axios from "axios/index";
 
+import './index.css'
 function getLine(data){
     var myChart = echarts.init(document.getElementById("ygLine"));
     var option = {
