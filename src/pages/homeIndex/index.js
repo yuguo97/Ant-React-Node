@@ -19,7 +19,7 @@ class HomeIndex extends React.Component {
     componentDidMount() {
         axios.get(`/api`)
             .then(res => {
-                console.log(res.data.home);
+                // console.log(res.data.home);
                 this.setState({
                     data:res.data.home,
                 })

@@ -21,7 +21,7 @@ class LoginFrom extends React.Component {
         <div className='login'>
             <div className='login-log'>
                 <div className='login-logo'>
-                    后台管理系统
+                    YG后台管理系统
                 </div>
                 <Form onSubmit={this.handleSubmit} className="login-form">
                     <Form.Item>

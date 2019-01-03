@@ -18,7 +18,7 @@ class Home extends Component {
     render() {
         return <Router history={history}>
             <div className="Home">
-              <Header name="后台管理系统" />
+              <Header name="YG后台管理系统" />
               <Aside />
               <div className="aCont">
                 <Switch>

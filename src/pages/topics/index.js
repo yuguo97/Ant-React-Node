@@ -3,6 +3,8 @@ import { Timeline,Spin} from 'antd';
 import Breadcrumb from "./../../components/Breadcrumb";
 import axios from "axios/index";
 
+import './index.css';
+
 class Topics extends React.Component {
     constructor(props){
         super(props);
@@ -17,7 +19,7 @@ class Topics extends React.Component {
         });
         axios.get(`/api`)
             .then(res => {
-                console.log(res.data.topics);
+                // console.log(res.data.topics);
                 this.setState({
                     data:res.data.topics,
                     loading: false

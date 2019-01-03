@@ -22,6 +22,19 @@
     font-size: 20px;
     float: left;
     cursor: pointer;
+    padding: 10px 20px;
+}
+.h_left>img{
+    width: 40px;
+    height: 40px;
+    float: left;
+}
+.h_left>span{
+    display: block;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    float: left;
 }
 .h_right{
     width: 10%;
@@ -78,7 +91,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    height: 30%;
+    height: 50%;
     width: 40%;
     margin: -15% 0 0 -20%;
     border: 1px solid #ddd;
@@ -92,6 +105,7 @@
     .login-logo{
         text-align: center;
         font-size: 18px;
+        margin: 10px auto;
     }
     .login-form {
         max-width: 300px;
