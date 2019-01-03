@@ -1,15 +1,15 @@
 {
   "main.css": "/ReactTraining/static/css/main.5a16ac7e.chunk.css",
-  "main.js": "/ReactTraining/static/js/main.db56e97b.chunk.js",
-  "main.js.map": "/ReactTraining/static/js/main.db56e97b.chunk.js.map",
+  "main.js": "/ReactTraining/static/js/main.a6aa78e6.chunk.js",
+  "main.js.map": "/ReactTraining/static/js/main.a6aa78e6.chunk.js.map",
   "static/css/1.d27ec8ae.chunk.css": "/ReactTraining/static/css/1.d27ec8ae.chunk.css",
   "static/js/1.53e88475.chunk.js": "/ReactTraining/static/js/1.53e88475.chunk.js",
   "static/js/1.53e88475.chunk.js.map": "/ReactTraining/static/js/1.53e88475.chunk.js.map",
   "runtime~main.js": "/ReactTraining/static/js/runtime~main.becc6b2e.js",
   "runtime~main.js.map": "/ReactTraining/static/js/runtime~main.becc6b2e.js.map",
-  "static/css/main.5a16ac7e.chunk.css.map": "/ReactTraining/static/css/main.5a16ac7e.chunk.css.map",
   "static/css/1.d27ec8ae.chunk.css.map": "/ReactTraining/static/css/1.d27ec8ae.chunk.css.map",
+  "static/css/main.5a16ac7e.chunk.css.map": "/ReactTraining/static/css/main.5a16ac7e.chunk.css.map",
   "index.html": "/ReactTraining/index.html",
-  "precache-manifest.a70d420fc4815b43adf6e4eb87e42534.js": "/ReactTraining/precache-manifest.a70d420fc4815b43adf6e4eb87e42534.js",
+  "precache-manifest.6ad5259fc80e494f8cd5c22453d7512c.js": "/ReactTraining/precache-manifest.6ad5259fc80e494f8cd5c22453d7512c.js",
   "service-worker.js": "/ReactTraining/service-worker.js"
 }
