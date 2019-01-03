@@ -3,7 +3,7 @@ import './App.css';
 import history from './history';
 import Header from './components/Header'
 import Aside from './components/Aside'
-import Setting from './pages/settting/Setting'
+import Setting from './pages/settting/index'
 
 
 import {  Router, Route, Switch, Redirect } from "react-router-dom";

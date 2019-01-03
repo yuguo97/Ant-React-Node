@@ -1,8 +1,8 @@
-import Topics from "./pages/topics/Topics";
-import About from "./pages/about/About";
-import Home from "./pages/home/Home";
-import Tab from "./pages/table/Table";
-import News from "./pages/news/News"
+import Topics from "./pages/topics/index";
+import About from "./pages/about/index";
+import Home from "./pages/home/index";
+import Tab from "./pages/table/index";
+import News from "./pages/news/index"
 const routes = [
     {
         path: "/",

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Spin } from 'antd';
-import Breadcrumb from "./../../components/Breadcrumb";
+import Breadcrumb from "../../components/Breadcrumb";
 // 引入 ECharts 主模块
 import echarts from 'echarts/lib/echarts';
 // 引入柱状图
