@@ -7,9 +7,32 @@ import { Menu , Icon } from 'antd';
 const SubMenu = Menu.SubMenu;
 
 class Aside extends React.Component{
+    rootSubmenuKeys = ['sub1', 'sub2'];
+
+    state = {
+      openKeys: ['sub1'],
+    };
+    onOpenChange = (openKeys) => {
+      const latestOpenKey = openKeys.find(key => this.state.openKeys.indexOf(key) === -1);
+      if (this.rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
+        this.setState({ openKeys });
+      } else {
+        this.setState({
+          openKeys: latestOpenKey ? [latestOpenKey] : [],
+        });
+      }
+    }
     render() {
         return <div className="aSide">
-            <Menu mode="inline" defaultSelectedKeys={["/Home/HomeIndex"]} selectedKeys={[history.location.pathname]} style={{ width: "250px", height: "100%" }} defaultOpenKeys={["sub1"]}>
+            <Menu 
+              mode="inline" 
+              openKeys={this.state.openKeys}
+              onOpenChange={this.onOpenChange}
+              defaultSelectedKeys={["/Home/HomeIndex"]} 
+              selectedKeys={[history.location.pathname]} 
+              style={{ width: "250px", height: "100%" }} 
+              defaultOpenKeys={this.state.openKeys}
+              >
               <SubMenu key="sub1" title={<span>
                     <Icon type="setting" />
                     <span>数据设置</span>

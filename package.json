@@ -24,7 +24,8 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "server": "node server/app.js"
+    "server": "node server/app.js",
+    "pm": "pm2 start server/app.js --watch"
   },
   "eslintConfig": {
     "extends": "react-app"

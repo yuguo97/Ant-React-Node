@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react'
 import axios from 'axios';
-import { Table, Divider, Tag, Pagination } from 'antd';
+import { Table, Divider,Pagination } from 'antd';
 const columns = [
   {
     title: "name",
@@ -40,7 +40,7 @@ const columns = [
 ];
 
 
-class Tab extends React.Component {
+class yTableOne extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -75,4 +75,4 @@ class Tab extends React.Component {
     }
 }
 
-export default Tab
+export default yTableOne;
