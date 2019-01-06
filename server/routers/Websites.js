@@ -32,7 +32,7 @@ const addStr = ygSQL.addSQL;
 // const addsqlparams = [param.name, param.url, param.alexa, param.country];
 // const addsqlparams = ['百度', 'https://www.baidu.com', '20','China'];
 router.post("/addWebsites", function (req, res) {
-  const param = req.query || req.params; 
+  const param =  req.body || req.query || req.params;
   const addsqlparams = [param.name, param.url, param.alexa, param.country];
   connection.query(addStr, addsqlparams, (err, results) => {
     if (err) {
@@ -47,7 +47,7 @@ const modStr = ygSQL.modSQL;
 // const modsqlparams = [param.name, param.url, param.alexa, param.country, param.id];
 // const modsqlparams = ['百度', 'https://www.baidu.com', '20', 'China',"1"];
 router.put("/modWebsites", function (req, res) {
-  const param = req.query || req.params; 
+  const param =  req.body || req.query || req.params;
   const modsqlparams = [param.name, param.url, param.alexa, param.country, param.id];
   connection.query(modStr, modsqlparams, (err, results) => {
     if (err) {
@@ -61,7 +61,7 @@ const delStr = ygSQL.delSQL;
 // const delsqlparams = [param.id];
 // const delsqlparams = ["1"];
 router.delete("/delWebsites", function(req, res) {
-  const param = req.query || req.params; 
+  const param =  req.body || req.query || req.params;
   const delsqlparams = [param.id];
   connection.query(delStr, delsqlparams, (err, results) => {
     if (err) {
