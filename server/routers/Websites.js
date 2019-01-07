@@ -18,7 +18,7 @@ router.get("/", function (req, res) {
                    });
                }
         else{
-              res.json({
+              return res.json({
                 code: 200,
                 message: "success",
                 result: results
@@ -35,10 +35,11 @@ router.post("/addWebsites", function (req, res) {
   const param =  req.body || req.query || req.params;
   const addsqlparams = [param.name, param.url, param.alexa, param.country];
   connection.query(addStr, addsqlparams, (err, results) => {
-    if (err) {
-      console.log('err');
-      return;
-    }
+      if (err) {
+          res.status(500).send('error saving');
+      } else {
+          res.sendStatus(200);
+      }
   });
 })
 //修改
@@ -50,25 +51,28 @@ router.put("/modWebsites", function (req, res) {
   const param =  req.body || req.query || req.params;
   const modsqlparams = [param.name, param.url, param.alexa, param.country, param.id];
   connection.query(modStr, modsqlparams, (err, results) => {
-    if (err) {
-      console.log("err");
-      return;
-    }
+      if (err) {
+          res.status(500).send('error saving');
+      } else {
+          res.sendStatus(200);
+      }
   });
 })
 //删除
 const delStr = ygSQL.delSQL;
 // const delsqlparams = [param.id];
 // const delsqlparams = ["1"];
-router.delete("/delWebsites", function(req, res) {
-  const param =  req.body || req.query || req.params;
-  const delsqlparams = [param.id];
-  connection.query(delStr, delsqlparams, (err, results) => {
-    if (err) {
-      console.log(err);
-      return;
-    }
-  });
+router.delete("/delWebsites/:id", function(req, res) {
+    const param = req.params;
+    const delsqlparams = [param.id];
+
+    connection.query(delStr, delsqlparams, (err, results) => {
+        if (err) {
+            res.status(500).send('error saving');
+        } else {
+            res.sendStatus(200);
+        }
+    });
 });
 
 module.exports = router;

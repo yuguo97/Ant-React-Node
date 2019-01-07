@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react'
 import axios from 'axios';
-import { Table, Divider, Pagination, Modal, Button, Form, Input, Radio,} from 'antd';
+import { Table, Divider, Pagination, Modal, Button, Form, Input} from 'antd';
 
 const formItemLayout = {
     labelCol: {
@@ -17,6 +17,7 @@ const formItemLayout = {
 const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
     // eslint-disable-next-line
     class extends React.Component {
+
         render() {
             const {
                 visible, onCancel, onCreate, form,
@@ -88,11 +89,32 @@ class yTableOne extends React.Component {
       loading: false
     };
   }
-    handleModify = (name, e) => {
-        e.preventDefault();
-        console.log(name);
-        this.setState({ visible: true });
-   };
+  handleModify = (record, e) => {
+    e.preventDefault();
+    console.log(name);
+    this.setState({ visible: true });
+  };
+  handleDelete = (record, e) => {
+    e.preventDefault();
+    // console.log(record)
+    const _this = this;
+    Modal.confirm({
+        title: "删除",
+        content: "确认删除?",
+        okText: "确认",
+        cancelText: "取消",
+        okType: 'danger',
+        onOk: function () {
+            axios
+                .delete(
+                    `http://localhost:6551/api/Websites/delWebsites/${record.id}`
+                )
+                .then(res => {
+                    _this.getData();
+                });
+        }
+    });
+  };
   handleCancel = () => {
     this.setState({ visible: false });
   };
@@ -109,7 +131,6 @@ class yTableOne extends React.Component {
       if (err) {
         return;
       }
-
       console.log("Received values of form: ", values);
       form.resetFields();
       this.setState({ visible: false });
@@ -119,55 +140,66 @@ class yTableOne extends React.Component {
   saveFormRef = formRef => {
     this.formRef = formRef;
   };
-
-  componentDidMount() {
-    this.setState({
-      loading: true
-    });
-    axios.get(`http://localhost:6551/api/Websites`).then(res => {
-      console.log(res.data.result);
+  getData=()=>{
       this.setState({
-        data: res.data.result,
-        loading: false,
-        total: res.data.result.length,
-        hasData: true
+          loading: true
       });
-    });
+      axios.get(`http://localhost:6551/api/Websites`).then(res => {
+          console.log(res.data.result);
+          this.setState({
+              data: res.data.result,
+              loading: false,
+              total: res.data.result.length,
+              hasData: true
+          });
+      });
+  }
+  componentDidMount() {
+      this.getData();
   }
 
   render() {
     const columns = [
-        { 
-            title: "name", 
-            dataIndex: "name", 
-            key: "name", 
-            render: text => <a href="javascript:;">{text}</a> 
-        }, { 
-            title: "url", 
-            dataIndex: "url", 
-            key: "url" 
-            }, 
-        { 
-            title: "alexa", 
-            dataIndex: "alexa", 
-            key: "alexa" 
-            },
-         { 
-            title: "country", 
-            dataIndex: "country", 
-            key: "country" 
-            }, { 
-            title: "Action", 
-            key: "action", 
-            render: record => <span>
-              <a href="javascript:;" onClick={this.handleModify.bind(this, record)}>
+      {
+        title: "name",
+        dataIndex: "name",
+        key: "name",
+        render: text => <a href="javascript:;">{text}</a>
+      },
+      {
+        title: "url",
+        dataIndex: "url",
+        key: "url"
+      },
+      {
+        title: "alexa",
+        dataIndex: "alexa",
+        key: "alexa"
+      },
+      {
+        title: "country",
+        dataIndex: "country",
+        key: "country"
+      },
+      {
+        title: "Action",
+        key: "action",
+        render: record => (
+          <span>
+            <a
+              href="javascript:;"
+              onClick={this.handleModify.bind(this, record)}
+            >
               修改
             </a>
             <Divider type="vertical" />
-            <a href="javascript:;" onClick={this.handleDelete}>
+                <a href="javascript:;" onClick={this.handleDelete.bind(this, record)}>
               删除
             </a>
-          </span> }];
+          </span>
+        )
+      }
+    ];
     return (
       <div className="aTableone">
         <Table
