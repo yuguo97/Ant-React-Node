@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://kuiguo1991.github.io/ReactTraining",
   "dependencies": {
-    "antd": "^3.10.0",
+    "antd": "^3.12.0",
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "echarts": "^4.2.0-rc.2",
@@ -25,7 +25,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "server": "node server/app.js",
-    "pm": "pm2 start server/app.js --watch"
+    "pm": "pm2 start server/app.js"
   },
   "eslintConfig": {
     "extends": "react-app"

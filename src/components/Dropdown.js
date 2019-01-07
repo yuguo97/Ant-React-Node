@@ -1,18 +1,25 @@
 /* eslint-disable */
 import React from 'react'
 import {withRouter} from "react-router-dom";
-import { Menu, Dropdown, Icon, message} from 'antd';
+import { Menu, Dropdown, Icon, Modal} from 'antd';
 import history from '../history';
 const onClick = function ({ key }) {
     if(key==="0"){
-        message.success("我的消息");
         history.push('/Home/Setting');
     }else if(key==="1"){
-        message.success("设置");
         history.push("/Home/News");
     }else if(key==="3"){
-        message.warning("退出登录");
-        history.push('/');
+        Modal.confirm({
+            title: "退出系统",
+            content: "确认退出系统?",
+            okText: "确认",
+            cancelText: "取消",
+            okType: 'danger',
+            onOk:function(){
+                history.push('/');
+            }
+        });
+
     }
 };
 
@@ -22,7 +29,7 @@ const menu = (
             我的消息
         </Menu.Item>
         <Menu.Item key="1">
-            设置
+            个人中心
         </Menu.Item>
         <Menu.Divider />
         <Menu.Item key="3">退出登陆</Menu.Item>
