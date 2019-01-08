@@ -11,7 +11,7 @@ class aBreadcrumb extends React.Component {
                 </Breadcrumb.Item>
                 <Breadcrumb.Item href="">
                     <Icon type="user" />
-                    <span>数据设置</span>
+                    <span>{this.props.username}</span>
                 </Breadcrumb.Item>
                 <Breadcrumb.Item>{this.props.name}</Breadcrumb.Item>
             </Breadcrumb>

@@ -90,7 +90,7 @@ class News extends React.Component {
     render() {
         return (
             <div className="news">
-                <Breadcrumb name="新闻数据" />
+                <Breadcrumb name="新闻数据" username="系统设置"/>
                 <div className="Content">
                     <Spin tip="Loading..." spinning={this.state.loading}>
                         <div id="pie" className="pie" />

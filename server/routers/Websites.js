@@ -42,21 +42,26 @@ router.post("/addWebsites", function (req, res) {
       }
   });
 })
-//修改
+
 //修改数据
 const modStr = ygSQL.modSQL;
-// const modsqlparams = [param.name, param.url, param.alexa, param.country, param.id];
-// const modsqlparams = ['百度', 'https://www.baidu.com', '20', 'China',"1"];
-router.put("/modWebsites", function (req, res) {
-  const param =  req.body || req.query || req.params;
-  const modsqlparams = [param.name, param.url, param.alexa, param.country, param.id];
-  connection.query(modStr, modsqlparams, (err, results) => {
-      if (err) {
-          res.status(500).send('error saving');
-      } else {
-          res.sendStatus(200);
-      }
-  });
+router.put("/modWebsites/:id", function (req, res) {
+    const paramID =req.params;
+    const paramValue=req.body;
+    const modsqlparams = [paramValue.name, paramValue.url, paramValue.alexa, paramValue.country, paramID.id];
+    connection.query(modStr, modsqlparams, (err, results) => {
+        if (err) {
+            return res.json({
+                code: 500,
+                message: "修改失败",
+            });
+        } else {
+            return res.json({
+                code: 200,
+                message: "修改成功",
+            });
+        }
+    });
 })
 //删除
 const delStr = ygSQL.delSQL;
@@ -65,12 +70,17 @@ const delStr = ygSQL.delSQL;
 router.delete("/delWebsites/:id", function(req, res) {
     const param = req.params;
     const delsqlparams = [param.id];
-
     connection.query(delStr, delsqlparams, (err, results) => {
         if (err) {
-            res.status(500).send('error saving');
+            return res.json({
+                code: 500,
+                message: "删除失败",
+            });
         } else {
-            res.sendStatus(200);
+            return res.json({
+                code: 200,
+                message: "删除成功",
+            });
         }
     });
 });

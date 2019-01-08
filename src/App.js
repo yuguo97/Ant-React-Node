@@ -4,17 +4,15 @@ import Home from './home'
 import Login from './login'
 import './App.css';
 import history from './history';
-// import Header from './components/Header'
-// import Aside from './components/Aside'
-// import Setting from './pages/settting/index'
+
 
 
 import {  Router, Route, Switch, Redirect } from "react-router-dom";
 
-// import routes from './router'
 
 
-class App extends React.Component {
+
+class App extends Component {
   render() {
     return (
       <Router history={history}>

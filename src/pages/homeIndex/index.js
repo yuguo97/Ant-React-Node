@@ -28,7 +28,7 @@ class HomeIndex extends React.Component {
     render() {
         return (
         <div className="aHome">
-            <Breadcrumb name="首页数据" />
+            <Breadcrumb name="首页数据" username="数据设置"/>
             <div className="Content">
                 <Collapse defaultActiveKey={["1"]} onChange={callback} accordion>
                     {this.state.data.map(item => (

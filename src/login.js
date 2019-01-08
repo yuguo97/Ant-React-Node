@@ -1,20 +1,41 @@
 /* eslint-disable */
 import React from 'react'
-import { Form, Icon, Input, Button, Checkbox } from "antd";
+import { Form, Icon, Input, Button, Checkbox, message} from "antd";
 import history from "./history";
-
+import axios from "axios";
 class LoginFrom extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
-    // let history = this.props.history;
+
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log("Received values of form: ", values);
-        history.push("/Home/HomeIndex");
+          var loginParams = {
+              USERNAME: values.username,
+              PASSWORD: values.password
+          };
+          axios
+            .post(`http://localhost:5551/api/LoginUser/Login`,loginParams)
+            .then(res => {
+                console.log(res)
+                if (res.data.isLogin){
+                    message.success("登录成功",1,function(){
+                        history.push("/Home/HomeIndex");
+                    })
+                }else{
+                    message.error("登录失败")
+                }
+            });
+
       }
     });
   };
-
+    componentDidMount(){
+        this.props.form.setFieldsValue({ 
+            username: "admin", 
+            password:"123456"
+        });
+    }
   render() {
     const { getFieldDecorator } = this.props.form;
     return <div className="login">

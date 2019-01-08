@@ -7,19 +7,23 @@ const columns = [{
     title: 'Name',
     dataIndex: 'name',
     key: 'name',
+    align:'center',
     render: text => <a href="javascript:;">{text}</a>,
 }, {
     title: 'Age',
     dataIndex: 'age',
     key: 'age',
+    align: 'center',
 }, {
     title: 'Address',
     dataIndex: 'address',
     key: 'address',
+    align: 'center',
 }, {
     title: 'Tags',
     key: 'tags',
     dataIndex: 'tags',
+    align: 'center',
     render: tags => (
         <span>
             {tags.map(tag => <Tag color="blue" key={tag}>{tag}</Tag>)}
@@ -28,6 +32,7 @@ const columns = [{
 }, {
     title: 'Action',
     key: 'action',
+    align: 'center',
     render: () => (
         <span>
             <a href="javascript:;">添加</a>
@@ -44,8 +49,7 @@ class yTableTwo extends React.Component {
             columns: columns,
             data: [],
             loading: false,
-            current: 1,
-            total: 0
+ 
         }
     }
     componentDidMount() {
@@ -58,14 +62,13 @@ class yTableTwo extends React.Component {
                 this.setState({
                     data: res.data.tab,
                     loading: false,
-                    total: res.data.tab.length
+
                 })
             });
         }
     render() {
         return <div className="yTableTwo">
-              <Table columns={this.state.columns} dataSource={this.state.data} loading={this.state.loading} pagination={false} />
-              <Pagination defaultCurrent={this.state.current} total={this.state.total} showTotal={total => `总数据 ${total} 条`} />
+            <Table columns={this.state.columns} dataSource={this.state.data} loading={this.state.loading} bordered/>
           </div>;
     }
 

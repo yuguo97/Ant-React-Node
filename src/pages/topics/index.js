@@ -27,23 +27,21 @@ class Topics extends React.Component {
             });
     }
     render() {
-        return (
-            <div className="aTopics">
-                <Breadcrumb name="时间轴数据" />
-                <div className="Content">
-                    <Spin spinning={this.state.loading} tip="Loading...">
-                        <Timeline>
-                            {this.state.data.map((item, index) => (
-                                <Timeline.Item key={index}>
-                                    {item.name}
-                                    {item.date}
-                                </Timeline.Item>
-                            ))}
-                        </Timeline>
-                    </Spin>
-                </div>
+        return <div className="aTopics">
+            <Breadcrumb name="时间轴数据" username="数据设置" />
+            <div className="Content">
+              <Spin spinning={this.state.loading} tip="Loading...">
+                <Timeline>
+                  {this.state.data.map((item, index) => (
+                    <Timeline.Item key={index}>
+                      {item.name}
+                      {item.date}
+                    </Timeline.Item>
+                  ))}
+                </Timeline>
+              </Spin>
             </div>
-            );
+          </div>;
     }
 }
 

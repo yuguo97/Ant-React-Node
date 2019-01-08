@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react'
 import axios from 'axios';
-import { Table, Divider, Pagination, Modal, Button, Form, Input} from 'antd';
+import { Table, Divider, Pagination, Modal, message, Form, Input } from "antd";
 
 const formItemLayout = {
     labelCol: {
@@ -14,86 +14,90 @@ const formItemLayout = {
     },
 };
 
-const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
-    // eslint-disable-next-line
-    class extends React.Component {
-
-        render() {
-            const {
-                visible, onCancel, onCreate, form,
-            } = this.props;
-            const { getFieldDecorator } = form;
-            return <Modal visible={visible} title="修改数据" okText="确定" cancelText="取消" onCancel={onCancel} onOk={onCreate}>
-                <Form layout="horizontal">
-                    <Form.Item label="name" {...formItemLayout}>
-                    {getFieldDecorator("name", {
-                      rules: [
-                        {
-                          required: true,
-                          message:
-                            "请输入name!"
-                        }
-                      ]
-                    })(<Input />)}
-                    </Form.Item>
-                    <Form.Item label="url" {...formItemLayout}>
-                    {getFieldDecorator("url", {
-                        rules: [
-                        {
-                            required: true,
-                            message:
-                            "请输入url"
-                        }
-                        ]
-                    })(<Input />)}
-                    </Form.Item>
-                    <Form.Item label="alexa" {...formItemLayout}>
-                    {getFieldDecorator("alexa", {
-                        rules: [
-                        {
-                            required: true,
-                            message:
-                            "请输入alexa"
-                        }
-                        ]
-                    })(<Input />)}
-                    </Form.Item>
-                    <Form.Item label="country" {...formItemLayout}>
-                    {getFieldDecorator("country", {
-                        rules: [
-                        {
-                            required: true,
-                            message:
-                            "请输入country!"
-                        }
-                        ]
-                    })(<Input />)}
-                    </Form.Item>
-                </Form>
-              </Modal>;
-        }
+const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
+  // eslint-disable-next-line
+  class extends React.Component {
+    render() {
+      const { visible, onCancel, onCreate, form } = this.props;
+      const { getFieldDecorator } = form;
+      return <Modal visible={visible} title="修改数据" okText="确定" cancelText="取消" onCancel={onCancel} onOk={onCreate}>
+          <Form layout="horizontal">
+            <Form.Item label="name" {...formItemLayout}>
+              {getFieldDecorator("name", {
+                rules: [
+                  {
+                    required: true,
+                    message: "请输入name!"
+                  }
+                ]
+              })(<Input placeholder="name" />)}
+            </Form.Item>
+            <Form.Item label="url" {...formItemLayout}>
+              {getFieldDecorator("url", {
+                rules: [
+                  {
+                    required: true,
+                    message: "请输入url"
+                  }
+                ]
+              })(<Input placeholder="url" />)}
+            </Form.Item>
+            <Form.Item label="alexa" {...formItemLayout}>
+              {getFieldDecorator("alexa", {
+                rules: [
+                  {
+                    required: true,
+                    message: "请输入alexa"
+                  }
+                ]
+              })(<Input placeholder="alexa" />)}
+            </Form.Item>
+            <Form.Item label="country" {...formItemLayout}>
+              {getFieldDecorator("country", {
+                rules: [
+                  {
+                    required: true,
+                    message: "请输入country!"
+                  }
+                ]
+              })(<Input placeholder="country" />)}
+            </Form.Item>
+          </Form>
+        </Modal>;
     }
+  }
 );
 
 
 class yTableOne extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      data: [],
-      loading: false,
-      current: 1,
-      total: 0,
-      hasData: false,
-      visible: false,
-      loading: false
+    this.state = { 
+        data: [], 
+        loading: false, 
+        current: 1, 
+        total: 0, 
+        hasData: false, 
+        visible: false, 
+        loading: false, 
+        ModifyID:null
     };
   }
-  handleModify = (record, e) => {
-    e.preventDefault();
-    console.log(name);
-    this.setState({ visible: true });
-  };
+    handleModify = (record, e) => {
+        e.preventDefault();
+        console.log(record.id);
+        this.setState({ 
+            visible: true, 
+            ModifyID: record.id 
+        });
+        const form = this.formRef.props.form;
+        form.setFieldsValue({
+            name: record.name,
+            url: record.url,
+            alexa: record.alexa,
+            country: record.country
+        });
+    };
   handleDelete = (record, e) => {
     e.preventDefault();
     // console.log(record)
@@ -110,7 +114,18 @@ class yTableOne extends React.Component {
                     `http://localhost:6551/api/Websites/delWebsites/${record.id}`
                 )
                 .then(res => {
-                    _this.getData();
+                    if(res.data.code==200){
+                        message.success("删除成功", 5, function () {
+                            console.log(res)
+                            _this.getData();
+                        })  
+                    }else{
+                        message.error("删除成功",5,function() {
+                            console.log(res);
+                            _this.getData();
+                          }
+                        );  
+                    }
                 });
         }
     });
@@ -126,16 +141,36 @@ class yTableOne extends React.Component {
   };
 
   handleCreate = () => {
-    const form = this.formRef.props.form;
-    form.validateFields((err, values) => {
-      if (err) {
-        return;
-      }
-      console.log("Received values of form: ", values);
-      form.resetFields();
-      this.setState({ visible: false });
-    });
-  };
+        const _this = this;
+        const form = this.formRef.props.form;
+        form.validateFields((err, values) => {
+            if (err) {
+                return;
+            }
+            console.log("Received values of form: ", values);
+            axios
+              .put(
+                `http://localhost:6551/api/Websites/modWebsites/${this.state.ModifyID}`,values
+              )
+              .then(res => {
+                  if (res.data.code == 200) {
+                      message.success("修改成功", 5, function () {
+                          console.log(res)
+                          _this.getData();
+                      })
+                  } else {
+                      message.error("修改失败", 1, function () {
+                          console.log(res);
+                          _this.getData();
+                      }
+                      );
+                  }
+
+              });
+            this.setState({ visible: false });
+            form.resetFields();
+        });
+    };
 
   saveFormRef = formRef => {
     this.formRef = formRef;
