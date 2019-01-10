@@ -23,7 +23,7 @@ class LoginFrom extends React.Component {
                         history.push("/Home/HomeIndex");
                     })
                 }else{
-                    message.error("登录失败")
+                    message.error("账号或密码错误！")
                 }
             });
 

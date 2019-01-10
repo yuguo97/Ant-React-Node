@@ -5,9 +5,9 @@ import { Menu, Dropdown, Icon, Modal} from 'antd';
 import history from '../history';
 const onClick = function ({ key }) {
     if(key==="0"){
-        history.push('/Home/Setting');
+  
     }else if(key==="1"){
-        history.push("/Home/News");
+        
     }else if(key==="3"){
         Modal.confirm({
             title: "退出系统",
@@ -24,16 +24,18 @@ const onClick = function ({ key }) {
 };
 
 const menu = (
-    <Menu onClick={onClick}>
-        <Menu.Item key="0">
-            我的消息
-        </Menu.Item>
-        <Menu.Item key="1">
-            个人中心
-        </Menu.Item>
-        <Menu.Divider />
-        <Menu.Item key="3">退出登陆</Menu.Item>
-    </Menu>
+  <Menu onClick={onClick}>
+    <Menu.Item key="0">
+      <a href="http://yuguo1991.com/about/" target="_blank">
+        关于作者
+      </a>
+    </Menu.Item>
+    <Menu.Item key="1">
+        <a href="https://github.com/kuiguo1991/ReactTraining" target="_blank">项目仓库</a>
+    </Menu.Item>
+    <Menu.Divider />
+    <Menu.Item key="3">退出登陆</Menu.Item>
+  </Menu>
 );
 class Drop extends React.Component {
     // constructor(props){
