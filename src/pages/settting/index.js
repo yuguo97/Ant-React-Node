@@ -3,7 +3,7 @@ import React from 'react';
 import { Tabs, Empty, LocaleProvider } from 'antd';
 const TabPane = Tabs.TabPane;
 import YPie from "../../components/Charts/yChartPie";
-import YTableOne from "../../components/Tables/yTableOne";
+import YTableTwo from "../../components/Tables/yTableTwo";
 import zhCN from "antd/lib/locale-provider/zh_CN";
 // import Breadcrumb from "./../../components/Breadcrumb";
 
@@ -19,7 +19,7 @@ class Setting extends React.Component{
             <div className="Content">
               <Tabs defaultActiveKey="1" onChange={callback}>
                 <TabPane tab="导航1" key="1">
-                  <YTableOne />
+                    <YTableTwo />
                 </TabPane>
                 <TabPane tab="导航2" key="2">
                   <LocaleProvider locale={zhCN}>
@@ -27,7 +27,7 @@ class Setting extends React.Component{
                   </LocaleProvider>
                 </TabPane>
                 <TabPane tab="导航3" key="3">
-                  <YPie />
+                    <YPie />
                 </TabPane>
               </Tabs>
             </div>

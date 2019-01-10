@@ -115,16 +115,12 @@ class yTableOne extends React.Component {
                 )
                 .then(res => {
                     if(res.data.code==200){
-                        message.success("删除成功", 5, function () {
-                            console.log(res)
+                        message.success("删除成功", 1, function () {
+                            // console.log(res)
                             _this.getData();
                         })  
                     }else{
-                        message.error("删除成功",5,function() {
-                            console.log(res);
-                            _this.getData();
-                          }
-                        );  
+                        message.error("删除失败");  
                     }
                 });
         }
@@ -154,16 +150,12 @@ class yTableOne extends React.Component {
               )
               .then(res => {
                   if (res.data.code == 200) {
-                      message.success("修改成功", 5, function () {
-                          console.log(res)
+                      message.success("修改成功", 1, function () {
+                        //   console.log(res)
                           _this.getData();
                       })
                   } else {
-                      message.error("修改失败", 1, function () {
-                          console.log(res);
-                          _this.getData();
-                      }
-                      );
+                      message.error("修改失败");
                   }
 
               });
@@ -180,7 +172,7 @@ class yTableOne extends React.Component {
           loading: true
       });
       axios.get(`http://localhost:6551/api/Websites`).then(res => {
-          console.log(res.data.result);
+        //   console.log(res.data.result);
           this.setState({
               data: res.data.result,
               loading: false,
