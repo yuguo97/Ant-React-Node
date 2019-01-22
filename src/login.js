@@ -10,29 +10,29 @@ class LoginFrom extends React.Component {
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log("Received values of form: ", values);
-          var loginParams = {
-              USERNAME: values.username,
-              PASSWORD: values.password
-          };
-          axios
-            .post(`http://localhost:5551/api/LoginUser/Login`,loginParams)
-            .then(res => {
-                console.log(res)
-                if (res.data.isLogin){
-                    message.success("登录成功",1,function(){
-                        history.push("/Home/HomeIndex");
-                    })
-                }else{
-                    message.error("账号或密码错误！")
-                }
-            });
+        var loginParams = {
+            USERNAME: values.username,
+            PASSWORD: values.password
+        };
+        axios
+        .post(`http://localhost:5551/api/LoginUser/Login`,loginParams)
+        .then(res => {
+            console.log(res)
+            if (res.data.isLogin){
+                message.success("登录成功",1,function(){
+                    history.push("/Home/HomeIndex");
+                })
+            }else{
+                message.error("账号或密码错误！")
+            }
+        });
 
       }
     });
   };
     componentDidMount(){
-        this.props.form.setFieldsValue({ 
-            username: "admin", 
+        this.props.form.setFieldsValue({
+            username: "admin",
             password:"123456"
         });
     }
@@ -59,7 +59,7 @@ class LoginFrom extends React.Component {
             <Form.Item>
               {getFieldDecorator("remember", {
                 valuePropName: "checked",
-                initialValue: false
+                initialValue: true
               })(<Checkbox>记住账号</Checkbox>)}
               <a className="login-form-forgot" href="">
                 忘记密码

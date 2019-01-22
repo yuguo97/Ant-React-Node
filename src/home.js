@@ -9,6 +9,7 @@ import About from "./pages/about/index";
 import HomeIndex from "./pages/homeIndex/index";
 import Tab from "./pages/table/index";
 import News from "./pages/news/index";
+import Weather from "./pages/weather/index";
 
 import { Router, Route, Switch, Redirect } from "react-router-dom";
 
@@ -22,13 +23,14 @@ class Home extends Component {
               <Aside />
               <div className="aCont">
                 <Switch>
-                  <Route component={HomeIndex} path="/Home/HomeIndex" exact />
-                  <Route component={Topics} path="/Home/Topics" />
-                  <Route component={About} path="/Home/About" />
-                  <Route component={Tab} path="/Home/Tab" />
-                  <Route component={News} path="/Home/News" />
-                  <Route component={Setting} path="/Home/Setting" />
-                  <Redirect to="/Home/HomeIndex" />
+                    <Route component={HomeIndex} path="/Home/HomeIndex" exact />
+                    <Route component={Topics} path="/Home/Topics" />
+                    <Route component={About} path="/Home/About" />
+                    <Route component={Tab} path="/Home/Tab" />
+                    <Route component={News} path="/Home/News" />
+                    <Route component={Setting} path="/Home/Setting" />
+                    <Route component={Weather} path="/Home/Weather" />
+                    <Redirect to="/Home/HomeIndex" />
                 </Switch>
               </div>
             </div>
