@@ -6,57 +6,71 @@ import axios from "axios/index";
 
 import './index.css';
 
-import { Tree } from "antd";
+import { Select } from "antd";
 
-const { TreeNode } = Tree;
+const Option = Select.Option;
+
+
+const provinceData = ['湖北', '湖南'];
+const cityData = {
+    湖北: ['武汉', '襄阳', '宜昌'],
+    湖南: ['长沙', '岳阳', '张家界'],
+};
 
 
 class Weather extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: [],
-            loading: false
+            cities: cityData[provinceData[0]],
+            secondCity: cityData[provinceData[0]][0],
         };
     }
-    onSelect = (selectedKeys) => {
-        console.log('selected', selectedKeys[0]);
-        const pra = {
-            "theCityCode": selectedKeys[0]
-         };
+
+    getData = (theCityCodeID) =>{
+        const pra = { theCityCode: theCityCodeID };
         axios
             .post(`http://localhost:8551/wsdl/Weather/getWeather`, pra)
             .then(res => {
                 console.log(res.data);
-                // this.setState({
-                //     data: res.data.topics,
-                //     loading: false
-                // });
             });
     }
-    componentDidMount() {
+    handleProvinceChange = (value) => {
+        this.setState({
+            cities: cityData[value],
+            secondCity: cityData[value][0],
+        });
+    }
 
+    onSecondCityChange = (value) => {
+        this.setState({
+            secondCity: value,
+        });
+        this.getData(value);
+    }
+    componentDidMount() {
+        console.log(this.state.secondCity);
+        this.getData(this.state.secondCity);
     }
     render() {
+        const { cities } = this.state;
         return <div className="aWeather">
                 <Breadcrumb name="天气设置" username="数据设置" />
                 <div className="Content">
-                    <Tree showLine defaultExpandedKeys={["湖北"]} onSelect={this.onSelect}>
-                        <TreeNode title="中国" key="中国">
-                            <TreeNode title="湖北" key="湖北">
-                                <TreeNode title="武汉" key="武汉" />
-                                <TreeNode title="襄阳" key="襄阳" />
-                                <TreeNode title="宜昌" key="宜昌" />
-                            </TreeNode>
-                            <TreeNode title="广东" key="广东">
-                                <TreeNode title="深圳" key="深圳" />
-                            </TreeNode>
-                            <TreeNode title="湖南" key="湖南">
-                                <TreeNode title="长沙" key="长沙" />
-                                <TreeNode title="岳阳" key="岳阳" />
-                            </TreeNode>
-                        </TreeNode>
-                    </Tree>
+                    <Select
+                        defaultValue={provinceData[0]}
+                        style={{ width: 120 }}
+                        onChange={this.handleProvinceChange}
+                    >
+                        {provinceData.map(province => <Option key={province}>{province}</Option>)}
+                    </Select>
+                    <Select
+                        style={{ width: 120 }}
+                        value={this.state.secondCity}
+                        onChange={this.onSecondCityChange}
+                    >
+                        {cities.map(city => <Option key={city}>{city}</Option>)}
+                    </Select>
                 </div>
             </div>;
     }
