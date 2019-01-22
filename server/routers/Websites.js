@@ -11,26 +11,24 @@ const sqlStr = ygSQL.queryAllSQL;
 router.get("/", function (req, res) {
     connection.query(sqlStr, (err, results) => {
       if (err) {
-                 return res.json({
-                     code: 500,
-                      message: "服务器错误",
-                     affextedRows: 0
-                   });
+                return res.json({
+                    code: 500,
+                    message: "服务器错误"
+                });
                }
         else{
-              return res.json({
-                code: 200,
-                message: "success",
-                result: results
-              });
+                return res.json({
+                    code: 200,
+                    message: "success",
+                    result: results
+                });
             }
     });
 })
 
 //添加
 const addStr = ygSQL.addSQL;
-// const addsqlparams = [param.name, param.url, param.alexa, param.country];
-// const addsqlparams = ['百度', 'https://www.baidu.com', '20','China'];
+
 router.post("/addWebsites", function (req, res) {
   const param =  req.body || req.query || req.params;
   const addsqlparams = [param.name, param.url, param.alexa, param.country];
@@ -45,6 +43,7 @@ router.post("/addWebsites", function (req, res) {
 
 //修改数据
 const modStr = ygSQL.modSQL;
+
 router.put("/modWebsites/:id", function (req, res) {
     const paramID =req.params;
     const paramValue=req.body;
@@ -64,9 +63,9 @@ router.put("/modWebsites/:id", function (req, res) {
     });
 })
 //删除
+
 const delStr = ygSQL.delSQL;
-// const delsqlparams = [param.id];
-// const delsqlparams = ["1"];
+
 router.delete("/delWebsites/:id", function(req, res) {
     const param = req.params;
     const delsqlparams = [param.id];
