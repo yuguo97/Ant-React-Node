@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.2/workbox-sw.js");
 
 importScripts(
-  "/element-ui-node/precache-manifest.5a4adf4e3fea6f897b6011364b0ac841.js"
+  "/Ant-Design-Node/precache-manifest.7a7515f5042c444669b3e75656856696.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/element-ui-node/index.html", {
+workbox.routing.registerNavigationRoute("/Ant-Design-Node/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
