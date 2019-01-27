@@ -58,9 +58,9 @@ class yTableTwo extends React.Component {
             loading: true
         });
         axios
-            .get(`http://localhost:5551/api/LoginUser/`)
+            .get(`http://localhost:5551/api/loginUsers/user`)
             .then(res => {
-                console.log(res.data.result);
+                // console.log(res.data.result);
                 this.setState({
                     data: res.data.result,
                     loading: false

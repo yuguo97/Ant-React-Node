@@ -111,7 +111,7 @@ class yTableOne extends React.Component {
         onOk: function () {
             axios
                 .delete(
-                    `http://localhost:6551/api/Websites/delWebsites/${record.id}`
+                    `http://localhost:6551/api/delWebsites/${record.id}`
                 )
                 .then(res => {
                     if(res.data.code==200){
@@ -146,7 +146,7 @@ class yTableOne extends React.Component {
             console.log("Received values of form: ", values);
             axios
               .put(
-                `http://localhost:6551/api/Websites/modWebsites/${this.state.ModifyID}`,values
+                `http://localhost:6551/api/modWebsites/${this.state.ModifyID}`,values
               )
               .then(res => {
                   if (res.data.code == 200) {
@@ -171,7 +171,7 @@ class yTableOne extends React.Component {
       this.setState({
           loading: true
       });
-      axios.get(`http://localhost:6551/api/Websites`).then(res => {
+      axios.get(`http://localhost:6551/api/websites`).then(res => {
         //   console.log(res.data.result);
           this.setState({
               data: res.data.result,

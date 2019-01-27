@@ -9,13 +9,13 @@ class LoginFrom extends React.Component {
 
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        console.log("Received values of form: ", values);
+        // console.log("Received values of form: ", values);
         var loginParams = {
             USERNAME: values.username,
             PASSWORD: values.password
         };
         axios
-        .post(`http://localhost:5551/api/LoginUser/Login`,loginParams)
+        .post(`http://localhost:5551/api/loginUsers/Login`,loginParams)
         .then(res => {
             console.log(res)
             if (res.data.isLogin){

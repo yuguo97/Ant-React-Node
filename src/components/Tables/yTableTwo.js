@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react'
 import axios from 'axios';
-import { Table, Divider, Tag, Pagination } from 'antd';
+import { Table, Divider, Tag} from 'antd';
 
 const columns = [{
     title: 'Name',
