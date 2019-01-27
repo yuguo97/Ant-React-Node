@@ -1,8 +1,8 @@
 {
-  "name": "element-ui-node",
+  "name": "Ant-Design-Node",
   "version": "1.1.0",
   "private": true,
-  "homepage": "https://kuiguo1991.github.io/element-ui-node",
+  "homepage": "https://kuiguo1991.github.io/Ant-Design-Node",
   "dependencies": {
     "antd": "^3.12.0",
     "axios": "^0.18.0",
