@@ -5,9 +5,9 @@ import { Menu, Dropdown, Icon, Modal} from 'antd';
 import history from '../history';
 const onClick = function ({ key }) {
     if(key==="0"){
-  
+
     }else if(key==="1"){
-        
+
     }else if(key==="3"){
         Modal.confirm({
             title: "退出系统",
@@ -31,7 +31,8 @@ const menu = (
       </a>
     </Menu.Item>
     <Menu.Item key="1">
-        <a href="https://github.com/kuiguo1991/ReactTraining" target="_blank">项目仓库</a>
+        < a href = "https://github.com/kuiguo1991/Ant-Design-Node"
+        target = "_blank" > 项目仓库 </a>
     </Menu.Item>
     <Menu.Divider />
     <Menu.Item key="3">退出登陆</Menu.Item>
