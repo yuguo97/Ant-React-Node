@@ -60,9 +60,9 @@ class ygPie extends React.Component {
             });
     }
     render() {
-        return <div>
+        return (
                <div id='pie'></div>
-          </div>;
+        )
     }
 }
 export default ygPie;

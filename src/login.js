@@ -45,16 +45,16 @@ class LoginFrom extends React.Component {
             <Form.Item>
               {getFieldDecorator("username", {
                 rules: [
-                  { required: true, message: "Please input your username!" }
+                  { required: true, message: "请输入账户!" }
                 ]
-              })(<Input prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />} placeholder="Username" />)}
+              })(<Input prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />} placeholder="账户" />)}
             </Form.Item>
             <Form.Item>
               {getFieldDecorator("password", {
                 rules: [
-                  { required: true, message: "Please input your Password!" }
+                  { required: true, message: "请输入密码!" }
                 ]
-              })(<Input prefix={<Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />} type="password" placeholder="Password" />)}
+              })(<Input prefix={<Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />} type="password" placeholder="密码" />)}
             </Form.Item>
             <Form.Item>
               {getFieldDecorator("remember", {

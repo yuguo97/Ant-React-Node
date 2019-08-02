@@ -11,7 +11,7 @@
     height: 60px;
     top: 0;
     left: 0;
-    background-color: #096dd9;
+    background-color: #0758E0;
     color: #fff;
 }
 .h_left{
@@ -28,6 +28,8 @@
     width: 40px;
     height: 40px;
     float: left;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 .h_left>span{
     display: block;

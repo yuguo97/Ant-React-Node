@@ -18,15 +18,15 @@ class Tables extends React.Component {
 
     render() {
         return <div className="aTable">
-            <Breadcrumb name="表格数据" username="系统设置" />
+            <Breadcrumb name="表格数据" username="数据分析" />
             <div className="Content">
-              <div className="DatePickerOne">
+                <div className="DatePickerOne">
                     <DatePicker onChange={onStartChange} placeholder="开始时间" />
                     <DatePicker onChange={onEndChange} placeholder="结束时间" />
-              </div>
-              <TableOne />
+                </div>
+                <TableOne />
             </div>
-          </div>;
+        </div>;
     }
 }
 

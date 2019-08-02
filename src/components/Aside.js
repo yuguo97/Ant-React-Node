@@ -25,15 +25,16 @@ class Aside extends React.Component{
     render() {
         return <div className="aSide">
                 <Menu mode="inline" openKeys={this.state.openKeys} onOpenChange={this.onOpenChange} defaultSelectedKeys={["/Home/HomeIndex"]} selectedKeys={[history.location.pathname]} style={{ width: "250px", height: "100%" }} defaultOpenKeys={this.state.openKeys}>
+                    < Menu.Item key = "/Home/HomeIndex" >
+                        < NavLink to = "/Home/HomeIndex" >
+                                < Icon type = "mail" />
+                                系统首页
+                        </NavLink>
+                    </Menu.Item>
                     <SubMenu key="sub1" title={<span>
                                 <Icon type="setting" />
-                                <span>数据设置</span>
+                                <span>数据分析</span>
                             </span>}>
-                        <Menu.Item key="/Home/HomeIndex">
-                            <NavLink to="/Home/HomeIndex">
-                                列表数据
-                            </NavLink>
-                        </Menu.Item>
                         <Menu.Item key="/Home/Topics">
                             <NavLink to="/Home/Topics">
                                 时间轴数据
@@ -44,6 +45,20 @@ class Aside extends React.Component{
                                 天气数据
                             </NavLink>
                         </Menu.Item>
+                        <Menu.Item key = "/Home/About" >
+                            <NavLink to = "/Home/About" > 图表数据 </NavLink>
+                        </Menu.Item>
+                        <SubMenu key = "sub3" title = "表格设置" >
+                            <Menu.Item key = "/Home/Tab" >
+                                <NavLink to = "/Home/Tab" >
+                                表格数据 </NavLink>
+                                </Menu.Item>
+                                <Menu.Item key = "/Home/News">
+                                <NavLink to = "/Home/News">
+                                新闻数据
+                                </NavLink>
+                            </Menu.Item>
+                        </SubMenu>
                     </SubMenu>
                     <SubMenu key="sub2" title={<span>
                                 <Icon type="appstore" />
@@ -54,21 +69,7 @@ class Aside extends React.Component{
                                 个人设置
                             </NavLink>
                         </Menu.Item>
-                        <Menu.Item key="/Home/About">
-                            <NavLink to="/Home/About">图表数据</NavLink>
-                        </Menu.Item>
-                        <SubMenu key="sub3" title="表格设置">
-                            <Menu.Item key="/Home/Tab">
-                                <NavLink to="/Home/Tab">
-                                    表格数据
-                                </NavLink>
-                            </Menu.Item>
-                            <Menu.Item key="/Home/News">
-                                <NavLink to="/Home/News">
-                                    新闻数据
-                                </NavLink>
-                            </Menu.Item>
-                        </SubMenu>
+
                     </SubMenu>
                 </Menu>
             </div>;

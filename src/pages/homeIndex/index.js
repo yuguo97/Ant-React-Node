@@ -1,42 +1,50 @@
 import React from 'react';
-import Breadcrumb from "./../../components/Breadcrumb";
-import { Collapse } from 'antd';
-import axios from "axios/index";
+import YPie from "../../components/Charts/yChartPie";
+import {
+    Row,
+    Col,
+    Card
+} from 'antd';
 import './index.css'
-const Panel = Collapse.Panel;
 
-function callback(key) {
-    console.log(key);
-}
+
+
 
 class HomeIndex extends React.Component {
     constructor(props){
         super(props);
         this.state={
-            data:[],
+
         }
     }
     componentDidMount() {
-        axios.get(`/api`)
-            .then(res => {
-                // console.log(res.data.home);
-                this.setState({
-                    data:res.data.home,
-                })
-            });
+
     }
     render() {
         return (
         <div className="aHome">
-            <Breadcrumb name="首页数据" username="数据设置"/>
-            <div className="Content">
-                <Collapse defaultActiveKey={["1"]} onChange={callback} accordion>
-                    {this.state.data.map(item => (
-                        <Panel header={item.name} key={item.key}>
-                            <p>{item.text}</p>
-                        </Panel>
-                    ))}
-                </Collapse>
+            <div className="Content" >
+                <Row>
+                    <Col span = {8}>
+                        < div style = {
+                            {
+                                width: "100%",
+                                padding:10,
+                                height:550
+                            }
+                        } >
+                            <Card
+                            title = "饼图"
+                            style = {{width: "100%","height":"100%"}}
+                            >
+                                < YPie />
+                            </Card>
+                        </div>
+                    </Col>
+                    <Col span = {8}>
+
+                    </Col>
+                </Row>
             </div>
         </div>
         )

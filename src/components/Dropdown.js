@@ -35,7 +35,7 @@ const menu = (
         target = "_blank" > 项目仓库 </a>
     </Menu.Item>
     <Menu.Divider />
-    <Menu.Item key="3">退出登陆</Menu.Item>
+    <Menu.Item key="3">退出登录</Menu.Item>
   </Menu>
 );
 class Drop extends React.Component {
@@ -46,7 +46,17 @@ class Drop extends React.Component {
         return <div className="aDropdown">
             <Dropdown overlay={menu}>
               <a className="ant-dropdown-link" href="" style={{ color: "#fff", fontSize: "18px", lineHeight: 1 }}>
-                {this.props.name} <Icon type="global" theme="outlined" twoToneColor="#52c41a" style={{ fontSize: "18px" }} />
+                {
+                    this.props.name
+                } < Icon type = "desktop"
+                theme = "outlined"
+                twoToneColor = "#52c41a"
+                style = {
+                    {
+                        fontSize: "18px"
+                    }
+                }
+                />
               </a>
             </Dropdown>
           </div>;

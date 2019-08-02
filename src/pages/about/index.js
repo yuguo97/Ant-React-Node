@@ -61,11 +61,11 @@ class About extends React.Component {
         return <div className="aAbout">
             <Breadcrumb name="图表数据" username ="系统设置"/>
             <div className="Content">
-              <Spin tip="Loading..." spinning={this.state.loading}>
-                <div id="ygLine" className="line" />
-              </Spin>
+                <Spin tip="Loading..." spinning={this.state.loading}>
+                    <div id="ygLine" className="line" />
+                </Spin>
             </div>
-          </div>;
+        </div>;
     }
 }
 
