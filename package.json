@@ -9,7 +9,7 @@
     "body-parser": "^1.18.3",
     "echarts": "^4.2.0-rc.2",
     "express": "^4.16.4",
-    "highcharts": "^6.2.0",
+    "highcharts": "^7.2.2",
     "history": "^4.7.2",
     "mysql": "^2.16.0",
     "react": "^16.5.2",
