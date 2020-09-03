@@ -1,3 +1,12 @@
+/*
+ * @Author: 隗果 
+ * @Date: 2020-09-03 22:31:55 
+ * @Last Modified by:   隗果 
+ * @Last Modified time: 2020-09-03 22:31:55 
+ */
+
+
+
 module.exports = {
   queryAllSQL:
      "SELECT * FROM websites",

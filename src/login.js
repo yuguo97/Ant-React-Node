@@ -6,29 +6,28 @@ import axios from "axios";
 class LoginFrom extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
+    history.push("/Home/HomeIndex");
+    // this.props.form.validateFields((err, values) => {
+    //   if (!err) {
+    //     // console.log("Received values of form: ", values);
+    //     var loginParams = {
+    //         USERNAME: values.username,
+    //         PASSWORD: values.password
+    //     };
+    //     axios
+    //     .post(`http://localhost:5551/api/loginUsers/Login`,loginParams)
+    //     .then(res => {
+    //         if (res.data.isLogin){
+    //             message.success("登录成功",1,function(){
+    //                 history.push("/Home/HomeIndex");
+    //             })
+    //         }else{
+    //             message.error("账号或密码错误！")
+    //         }
+    //     });
 
-    this.props.form.validateFields((err, values) => {
-      if (!err) {
-        // console.log("Received values of form: ", values);
-        var loginParams = {
-            USERNAME: values.username,
-            PASSWORD: values.password
-        };
-        axios
-        .post(`http://localhost:5551/api/loginUsers/Login`,loginParams)
-        .then(res => {
-            console.log(res)
-            if (res.data.isLogin){
-                message.success("登录成功",1,function(){
-                    history.push("/Home/HomeIndex");
-                })
-            }else{
-                message.error("账号或密码错误！")
-            }
-        });
-
-      }
-    });
+    //   }
+    // });
   };
     componentDidMount(){
         this.props.form.setFieldsValue({
