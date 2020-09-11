@@ -1,9 +1,10 @@
 /*
- * @Author: 隗果 
- * @Date: 2020-09-03 22:34:18 
- * @Last Modified by:   隗果 
- * @Last Modified time: 2020-09-03 22:34:18 
+ * @Author: 隗果
+ * @Date: 2020-09-03 22:34:18
+ * @Last Modified by:   隗果
+ * @Last Modified time: 2020-09-03 22:34:18
  */
+ 
 import React, { Component } from 'react';
 import Home from './home'
 import Login from './login'
