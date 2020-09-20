@@ -1,10 +1,13 @@
 /*
- * @Author: 隗果
- * @Date: 2020-09-03 22:34:18
- * @Last Modified by:   隗果
- * @Last Modified time: 2020-09-03 22:34:18
+ * @Author: your name
+ * @Date: 2020-09-19 08:41:46
+ * @LastEditTime: 2020-09-20 20:50:13
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /github/Ant-React-Node/src/App.js
  */
- 
+
+
 import React, { Component } from 'react';
 import Home from './home'
 import Login from './login'
