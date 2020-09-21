@@ -70,25 +70,25 @@ const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
 
 
 class yTableOne extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { 
-        data: [], 
-        loading: false, 
-        current: 1, 
-        total: 0, 
-        hasData: false, 
-        visible: false, 
-        loading: false, 
+  constructor(...props) {
+    super(...props);
+    this.state = {
+        data: [],
+        loading: false,
+        current: 1,
+        total: 0,
+        hasData: false,
+        visible: false,
+        loading: false,
         ModifyID:null
     };
   }
     handleModify = (record, e) => {
         e.preventDefault();
         console.log(record.id);
-        this.setState({ 
-            visible: true, 
-            ModifyID: record.id 
+        this.setState({
+            visible: true,
+            ModifyID: record.id
         });
         const form = this.formRef.props.form;
         form.setFieldsValue({
@@ -118,9 +118,9 @@ class yTableOne extends React.Component {
                         message.success("删除成功", 1, function () {
                             // console.log(res)
                             _this.getData();
-                        })  
+                        })
                     }else{
-                        message.error("删除失败");  
+                        message.error("删除失败");
                     }
                 });
         }
