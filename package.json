@@ -8,14 +8,21 @@
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "echarts": "^4.2.0-rc.2",
-    "express": "^4.16.4",
     "highcharts": "^6.2.0",
     "history": "^4.7.2",
+    "koa": "^2.13.1",
+    "koa-bodyparser": "^4.3.0",
+    "koa-mysql-session": "0.0.2",
+    "koa-redis": "^4.0.1",
+    "koa-router": "^10.0.0",
+    "koa-session-minimal": "^4.0.0",
+    "koa-static-cache": "^5.1.4",
     "mysql": "^2.16.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "^2.0.4"
+    "react-scripts": "^2.0.4",
+    "redis": "^3.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -25,7 +32,8 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "server": "node server/app.js",
-    "pm": "pm2 start server/app.js"
+    "pm": "pm2 start server/app.js",
+    "nodemon": "nodemon server/app.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -38,6 +46,7 @@
   ],
   "devDependencies": {
     "gh-pages": "^2.0.1",
-    "mockjs": "^1.0.1-beta3"
+    "mockjs": "^1.0.1-beta3",
+    "nodemon": "^2.0.7"
   }
 }
